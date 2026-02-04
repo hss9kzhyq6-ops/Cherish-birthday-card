@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #fff0f6);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #fff7fb);
+      width: 94%;
+      max-width: 1000px;
+      border-radius: 32px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4f9a;
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #999;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
+
+    .wishes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .wish {
+      background: linear-gradient(180deg, #fff, #fff1f7);
+      border-radius: 26px;
+      padding: 22px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      position: relative;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .wish::after {
+      content: '🎀';
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      font-size: 22px;
+    }
+
+    .wish p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .wish span {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #ff4f9a;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 45px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday 🎂💖</h1>
+    <h2>So many people wanted to wish you the best</h2>
+
+    <div class="wishes" id="wishes"></div>
+
+    <div class="footer">Made with love 💕</div>
+  </div>
+
+  <script>
+    // ✨ WRITE THE WISHES HERE, UP TO 50 ✨
+
+    const wishes = [
+      { name: "Franklin", message: "happy birthday cherish. WULLNP" },
+      { name: "Uche", message: "Haappy birthday cheriish" },
+      { name: "Bethel", message: "happy birthday mama cherr 🥺❤️ i deey come worry you after my exam " },
+      { name: "Victory", message: "Happy Birthday Cherish " },
+      { name: "Estephany", message: "Happy Birthday! 💗I wish you a year filled with unending happiness, unimaginable blessings, and answered prayers.  I hope this year gives you many reasons to smile. Have the most amazing day and an even better year ahead🤗🩷  -Bk" },
+      { name: "Megan", message: "Happy Birthday, Cherr!! I hope you have the best day, and I pray that God grants all your desires.❤️" },
+      { name: "Eseohe", message: "Happy birthday Cherish❤️!  I hope you have the best day. I wish you the best in life, you deserve the world   🌷" },
+      { name: "Chix", message: "happy birthday my cherbear, my gurl, my literal day one! wishing you the BEST life has to offer. i love you so muchhhh. enjoy your day...and your new age, mh" },
+      { name: "Ude", message: "happy birthday cherishhhh, hope you enjoy your day today, i wish you a sweet 17 and i pray the lord will add many more years" },
+      { name: "Valerie 💓", message: "happy birthday Cherish!!!! wishing you the longest life and prosperity! even though we don't talk a lot, you seem like a really funny person and interesting to be around! hope you have the best day ever x" },
+      { name: "Person 11", message: "Celebrate yourself today 🎉" },
+      { name: "Person 12", message: "All the best for this year 💖" },
+      { name: "Person 13", message: "You’re amazing! 🌸" },
+      { name: "Person 14", message: "Much love today 💕" },
+      { name: "Person 15", message: "Happy, happy birthday! 🥳" },
+      { name: "Person 16", message: "Wishing smiles all day 😄" },
+      { name: "Person 17", message: "Joyful moments ahead 🎂" },
+      { name: "Person 18", message: "Have a blast today! 🌟" },
+      { name: "Person 19", message: "You rock! 🎸" },
+      { name: "Person 20", message: "Sweet celebrations 💖" },
+      { name: "Person 21", message: "Cheers to your special day! 🥂" },
+      { name: "Person 22", message: "Happiness forever 🌸" },
+      { name: "Person 23", message: "Birthday love 💕" },
+      { name: "Person 24", message: "Stay amazing! ✨" },
+      { name: "Person 25", message: "Much joy today 🎉" },
+      { name: "Person 26", message: "Sending warm wishes 💖" },
+      { name: "Person 27", message: "Smile always 😄" },
+      { name: "Person 28", message: "You deserve the best 🌟" },
+      { name: "Person 29", message: "Have fun today 🥳" },
+      { name: "Person 30", message: "Much love 💕" },
+      { name: "Person 31", message: "You’re awesome! 🎂" },
+      { name: "Person 32", message: "Birthday cheers 🥂" },
+      { name: "Person 33", message: "Hugs and happiness 🤗" },
+      { name: "Person 34", message: "Celebrate big! 🎉" },
+      { name: "Person 35", message: "Joy and love 💖" },
+      { name: "Person 36", message: "Best wishes 🌸" },
+      { name: "Person 37", message: "Have a magical day 🪄" },
+      { name: "Person 38", message: "You’re the best! 💕" },
+      { name: "Person 39", message: "Party time 🎉" },
+      { name: "Person 40", message: "Happiness all around 🌟" },
+      { name: "Person 41", message: "Keep smiling 😄" },
+      { name: "Person 42", message: "Love and joy 💖" },
+      { name: "Person 43", message: "Have a wonderful birthday 🎂" },
+      { name: "Person 44", message: "Sending birthday hugs 🤗" },
+      { name: "Person 45", message: "May your day be sweet 🌸" },
+      { name: "Person 46", message: "Lots of love 💕" },
+      { name: "Person 47", message: "You deserve happiness 🎉" },
+      { name: "Person 48", message: "Shine bright ✨" },
+      { name: "Person 49", message: "Have fun 🥳" },
+      { name: "Person 50", message: "Best birthday wishes 💖" }
+    ];
+
+    const wishesContainer = document.getElementById('wishes');
+
+    wishes.forEach(wish => {
+      const div = document.createElement('div');
+      div.className = 'wish';
+      div.innerHTML = `<p>${wish.message}</p><span>— ${wish.name}</span>`;
+      wishesContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
